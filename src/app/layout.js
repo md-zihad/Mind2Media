@@ -1,10 +1,5 @@
 import {
   ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
 } from '@clerk/nextjs'
 
 import Provider from './provider';
@@ -28,15 +23,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>    <html lang="en">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Provider>
-          {children}
-        </Provider>
+        <ClerkProvider>
+          <Provider>
+            {children}
+          </Provider>
+        </ClerkProvider>
       </body>
-    </html></ClerkProvider>
+    </html>
 
   );
 }
